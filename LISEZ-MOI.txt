@@ -1,0 +1,10 @@
+KIT DE DÉPART : Mini-TP Modules 1 et 2 (ISTILE)
+================================================
+Contenu :
+  data/etudiants.json     20 étudiants (jeu de données du TP)
+  outils/simulerFetch.js  secours si vous n'avez pas Internet (voir le sujet, partie E)
+  package.json            configuration du projet ("type": "module")
+
+À faire : copiez ce contenu dans votre dépôt GitHub (partie A du sujet), puis créez
+vous-même .gitignore, README.md, versions.txt, reponses.md, index.html, style.css et le dossier src/.
+Lancer le programme : npm start

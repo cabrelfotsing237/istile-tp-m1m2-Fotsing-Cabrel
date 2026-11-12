@@ -1,0 +1,21 @@
+{
+  "name": "istile-tp-m1-m2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ce projet consiste à créer un petit annuaire des étudiants de l'ISTILE.   Il remplace les tableaux papier par une interface simple et rapide à consulter.   Le site permet de retrouver les informations essentielles des étudiants en quelques clics.",
+  "homepage": "https://github.com/cabrelfotsing237/istile-tp-m1m2-Fotsing-Cabrel#readme",
+  "bugs": {
+    "url": "https://github.com/cabrelfotsing237/istile-tp-m1m2-Fotsing-Cabrel/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabrelfotsing237/istile-tp-m1m2-Fotsing-Cabrel.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}
