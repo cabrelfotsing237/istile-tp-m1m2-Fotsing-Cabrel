@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- En-tête principal de la page avec logo et navigation -->
     <header>
         <img src="images/logo-istile.png" alt="Logo ISTILE" class="logo-img" />
       <h1>ISTILE Annuaire</h1>
@@ -19,9 +18,7 @@
       </nav>
     </header>
 
-    <!-- Zone principale du site -->
     <main>
-      <!-- Section de recherche des étudiants -->
       <section id="recherche">
         <h2>Recherche</h2>
 
@@ -37,14 +34,12 @@
         </form>
       </section>
 
-      <!-- Section d’affichage des cartes étudiants -->
       <section id="etudiants">
         <h2>Étudiants</h2>
 
         <div id="listeEtudiants" class="grille-etudiants"></div>
       </section>
 
-      <!-- Section de contact de l’établissement -->
       <section id="contact">
         <h2>Contact</h2>
         <p>
@@ -54,12 +49,10 @@
       </section>
     </main>
 
-    <!-- Pied de page du site -->
     <footer>
       <p>© 2026 ISTILE - Tous droits réservés.</p>
     </footer>
 
-    <!-- Script principal : affichage et filtrage des étudiants -->
     <script type="module">
       import { renderEtudiants, tousLesEtudiants } from './src/etudiants.js';
 
