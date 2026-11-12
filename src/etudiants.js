@@ -1,7 +1,5 @@
-// Import du fichier JSON contenant les étudiants.
 import etudiants from '../data/etudiants.json' with { type: 'json' };
 
-// Transforme la liste brute en objets plus simples à afficher dans l'interface.
 export function afficherEtudiants(liste = etudiants) {
   return liste.map((etudiant) => ({
     id: etudiant.id,
@@ -13,10 +11,8 @@ export function afficherEtudiants(liste = etudiants) {
   }));
 }
 
-// Liste complète des étudiants prêts à être affichés.
 export const tousLesEtudiants = afficherEtudiants();
 
-// Génère le rendu HTML des étudiants dans le conteneur du DOM.
 export function renderEtudiants(container, liste = tousLesEtudiants) {
   if (!container) return;
 
@@ -37,11 +33,6 @@ export function renderEtudiants(container, liste = tousLesEtudiants) {
     .join('');
 }
 
-/**
- * Calcule la moyenne générale des notes d'une liste d'étudiants.
- * @param {Array} liste - Liste des étudiants.
- * @returns {number} La moyenne arrondie à 2 décimales.
- */
 export function moyenneGenerale(liste) {
   if (!Array.isArray(liste) || liste.length === 0) return 0;
 
@@ -49,30 +40,14 @@ export function moyenneGenerale(liste) {
   return Number((total / liste.length).toFixed(2));
 }
 
-/**
- * Filtre les étudiants admis : note >= 10.
- * @param {Array} liste - Liste des étudiants.
- * @returns {Array} Nouvelle liste des étudiants admis.
- */
 export function admis(liste) {
   return liste.filter((etudiant) => Number(etudiant.note) >= 10);
 }
 
-/**
- * Formate les noms sous la forme "NOM prénom".
- * Le nom est mis en majuscules.
- * @param {Array} liste - Liste des étudiants.
- * @returns {Array} Tableau de chaînes formatées.
- */
 export function nomsFormates(liste) {
   return liste.map((etudiant) => `${etudiant.nom.toUpperCase()} ${etudiant.prenom}`);
 }
 
-/**
- * Compte le nombre d'étudiants par filière.
- * @param {Array} liste - Liste des étudiants.
- * @returns {Object} Objet de type { "Informatique": 4, ... }.
- */
 export function effectifParFiliere(liste) {
   return liste.reduce((compteur, etudiant) => {
     const filiere = etudiant.filiere;
@@ -81,11 +56,6 @@ export function effectifParFiliere(liste) {
   }, {});
 }
 
-/**
- * Calcule la moyenne des notes par filière.
- * @param {Array} liste - Liste des étudiants.
- * @returns {Object} Objet de type { "Informatique": 12.5, ... }.
- */
 export function moyenneParFiliere(liste) {
   const groupes = {};
 
@@ -109,23 +79,10 @@ export function moyenneParFiliere(liste) {
   return resultat;
 }
 
-/**
- * Classe les étudiants par note décroissante.
- * @param {Array} liste - Liste des étudiants.
- * @returns {Array} Nouvelle liste triée.
- */
 export function classementParNote(liste) {
   return [...liste].sort((a, b) => Number(b.note) - Number(a.note));
 }
 
-/**
- * Met à jour la note d'un étudiant donné.
- * La fonction crée une nouvelle liste ; elle ne modifie pas la liste originale.
- * @param {Array} liste - Liste des étudiants.
- * @param {number} id - Identifiant de l'étudiant à modifier.
- * @param {number} note - Nouvelle note.
- * @returns {Array} Nouvelle liste avec la note mise à jour.
- */
 export function majNote(liste, id, note) {
   return liste.map((etudiant) =>
     etudiant.id === id
