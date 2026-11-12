@@ -1,7 +1,3 @@
-// À utiliser UNIQUEMENT en cas d'absence de connexion Internet :
-//   import { simulerFetch } from "../outils/simulerFetch.js";
-//   globalThis.fetch = simulerFetch;
-// Cette fonction imite quelques réponses de https://dummyjson.com (données de démonstration).
 const PRENOMS = ["Emily", "Michael", "Sophia", "James", "Olivia", "Liam", "Ava", "Noah"];
 const NOMS = ["Johnson", "Williams", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"];
 const fabriquer = (id) => ({
