@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISTILE Annuaire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- En-tête principal de la page avec logo et navigation -->
+    <header>
+        <img src="images/logo-istile.png" alt="Logo ISTILE" class="logo-img" />
+      <h1>ISTILE Annuaire</h1>
+
+      <nav aria-label="Menu principal">
+        <a href="#recherche">Recherche</a>
+        <a href="#etudiants">Étudiants</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Zone principale du site -->
+    <main>
+      <!-- Section de recherche des étudiants -->
+      <section id="recherche">
+        <h2>Recherche</h2>
+
+        <form id="formRecherche">
+          <label for="recherche-etudiant">Rechercher un étudiant</label>
+          <input
+            type="text"
+            id="recherche-etudiant"
+            name="recherche-etudiant"
+            placeholder="Entrez un prénom ou un nom"
+          />
+          <button type="submit">Rechercher</button>
+        </form>
+      </section>
+
+      <!-- Section d’affichage des cartes étudiants -->
+      <section id="etudiants">
+        <h2>Étudiants</h2>
+
+        <div id="listeEtudiants" class="grille-etudiants"></div>
+      </section>
+
+      <!-- Section de contact de l’établissement -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Pour toute demande, contactez-nous à l’adresse :
+          <a href="mailto:contact@istile.cm">istileuniversity@istile.cm</a>
+        </p>
+      </section>
+    </main>
+
+    <!-- Pied de page du site -->
+    <footer>
+      <p>© 2026 ISTILE - Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script principal : affichage et filtrage des étudiants -->
+    <script type="module">
+      import { renderEtudiants, tousLesEtudiants } from './src/etudiants.js';
+
+      const conteneur = document.getElementById('listeEtudiants');
+      const champRecherche = document.getElementById('recherche-etudiant');
+      const formulaire = document.getElementById('formRecherche');
+
+      function mettreAJourAffichage() {
+        const terme = champRecherche.value.trim().toLowerCase();
+
+        const etudiantsFiltres = !terme
+          ? tousLesEtudiants
+          : tousLesEtudiants.filter((etudiant) => {
+              const texte = `${etudiant.nomComplet} ${etudiant.email} ${etudiant.filiere}`.toLowerCase();
+              return texte.includes(terme);
+            });
+
+        if (etudiantsFiltres.length === 0) {
+          conteneur.innerHTML = '<p class="vide">Aucun étudiant trouvé.</p>';
+          return;
+        }
+
+        renderEtudiants(conteneur, etudiantsFiltres);
+      }
+
+      champRecherche.addEventListener('input', mettreAJourAffichage);
+
+      formulaire.addEventListener('submit', (event) => {
+        event.preventDefault();
+        mettreAJourAffichage();
+      });
+
+      mettreAJourAffichage();
+    </script>
+
+  </body>
+</html>
